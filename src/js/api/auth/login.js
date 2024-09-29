@@ -1,5 +1,6 @@
 import { API_AUTH_LOGIN } from "../constants.js";
 import { getKey } from "./key.js";
+import { accountError } from "./error.js";
 
 export async function login({ email, password }) {
   try {
@@ -14,9 +15,9 @@ export async function login({ email, password }) {
     const data = await response.json();
 
     if (response.ok) {
-      await getKey(data);
+      getKey(data);
     } else {
-      await accountError(data);
+      accountError(data);
     }
 
     return response.ok;

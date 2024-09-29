@@ -1,5 +1,4 @@
-export async function getKey(name) {
-  const data = await name.json();
+export async function getKey(data) {
   if (data.data.accessToken) {
     localStorage.setItem("accessToken", data.data.accessToken);
   }

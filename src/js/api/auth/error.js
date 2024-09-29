@@ -1,11 +1,10 @@
-export async function accountError(response) {
-  const errorData = await response.json();
+export async function accountError(data) {
   let errorMessage = "Unknown error occurred";
 
-  if (errorData.errors && Array.isArray(errorData.errors)) {
-    errorMessage = errorData.errors.map((err) => err.message + ".").join("\n");
-  } else if (errorData.error && errorData.error.message) {
-    errorMessage = errorData.error.message + ".";
+  if (data.errors && Array.isArray(data.errors)) {
+    errorMessage = data.errors.map((err) => err.message + ".").join("\n");
+  } else if (data.error && data.error.message) {
+    errorMessage = data.error.message + ".";
   }
   throw new Error(errorMessage);
 }

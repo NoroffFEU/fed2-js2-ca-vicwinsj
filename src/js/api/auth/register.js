@@ -1,4 +1,5 @@
 import { API_AUTH_REGISTER } from "../constants.js";
+import { accountError } from "./error.js";
 
 export async function register({ name, email, password, bio, banner, avatar }) {
   try {
@@ -10,9 +11,13 @@ export async function register({ name, email, password, bio, banner, avatar }) {
       body: JSON.stringify({ name, email, password, bio, banner, avatar }),
     });
 
+    console.log(JSON.stringify({ name, email, password, bio, banner, avatar }));
+    console.log(response);
+    const data = await response.json();
+
     if (!response.ok) {
-      const errorResponse = await response.json();
-      throw new Error(errorResponse.message || "Registration failed");
+      accountError(data);
+      throw new Error(data.message || "Registration failed");
     }
 
     return response.ok;
