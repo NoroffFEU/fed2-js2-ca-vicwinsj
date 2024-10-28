@@ -1,5 +1,6 @@
 import { API_SOCIAL_POSTS } from "../api/constants.js";
 import { headers } from "../api/headers.js";
+import { displayPosts } from "./displayPosts.js";
 
 export async function getPosts() {
   try {
@@ -14,3 +15,5 @@ export async function getPosts() {
     console.error("Fetching error:", error.message);
   }
 }
+
+export const posts = await getPosts();

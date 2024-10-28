@@ -15,7 +15,7 @@ export async function onLogin(event) {
 
     if (isLoggedIn) {
       console.log("Login successful");
-      // window.history.go(-1); //
+      window.history.go(-1);
     } else {
       console.log("not successful");
     }

@@ -5,6 +5,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
+    <script type="module" src="../../src/js/router/views/postEdit.js"></script>
     <script type="module" src="/src/app.js"></script>
   </head>
 
@@ -23,10 +24,24 @@
     </header>
     <h1>Edit Post</h1>
     <form name="editPost">
+      <label for="edit-title">Title</label>
+      <input id="edit-title" name="title"></input>
       <div>
-        <label for="edit-body"></label>
+        <label for="edit-body">Body</label>
         <textarea id="edit-body" name="body" required></textarea>
       </div>
+      <div><div>
+        <img id="edit-img" src="" alt="" />
+        </div>
+        <div>
+          <label for="edit-img">Image url</label>
+          <input type="url" id="img-url" name="image-url"></input>
+        </div>
+        <div>
+          <label for="img-alt">Image description</label>
+          <input id="img-alt" name="alt-text"></input>
+        </div>
+        </div>
       <button id="update">Update Post</button>
       <button id="delete">Delete Post</button>
     </form>

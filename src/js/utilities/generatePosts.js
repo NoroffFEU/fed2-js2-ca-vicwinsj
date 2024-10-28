@@ -1,45 +1,47 @@
 import { postUrl } from "./postUrl.js";
+import { updateDate, creationDate } from "./formatDate.js";
 
 export function generatePosts(post) {
   const postContainer = document.createElement("div");
   //   postContainer.className = "index-grid-item";
 
-  const contentContainer = document.createElement("div");
-  //   contentContainer.classList = "blog-post-content";
+  if (post.author && post.author.name) {
+    const author = document.createElement("p");
+    author.innerText = post.author.name;
+    byline.append(author);
+  }
+
+  const date = document.createElement("p");
+  if (post.updated === post.created) {
+    date.innerText = creationDate(post);
+  } else {
+    date.innerText = creationDate(post) + " (Edited " + updateDate(post) + ")";
+  }
+
+  const body = document.createElement("p");
+  //   title.className = "m-font letter-spacing";
+  body.innerText = post.body;
+  body.onclick = function () {
+    postUrl(post);
+  };
 
   const imgContainer = document.createElement("div");
   //   imgContainer.className = "index-grid-item--img";
+
   const img = document.createElement("img");
-  img.src = post.media.url;
-  img.alt = post.media.alt;
-  img.onclick = function () {
-    postUrl(post);
-  };
 
-  const title = document.createElement("p");
-  //   title.className = "m-font letter-spacing";
-  title.innerText = post.title;
-  title.onclick = function () {
-    postUrl(post);
-  };
+  if (post.media && post.media.url) {
+    img.src = post.media.url;
+    img.alt = post.media.alt || "No description available";
+    img.onclick = function () {
+      postUrl(post);
+    };
+    imgContainer.append(img);
+  }
 
-  const buttonsContainer = document.createElement("div");
-  //   buttonsContainer.className = "blog-links";
+  const byline = document.createElement("div");
+  byline.append(date);
 
-  const readButton = document.createElement("a");
-  //   readButton.className = "cta cta-blue";
-  readButton.innerText = "Read";
-  readButton.href = `post/index.html?id=${post.id}`;
-
-  const editButton = document.createElement("a");
-  //   editButton.className = "cta cta-gold hide";
-  editButton.innerText = "Edit";
-  editButton.href = `post/edit.html?id=${post.id}`;
-
-  imgContainer.append(img);
-  buttonsContainer.append(editButton, readButton);
-  contentContainer.append(imgContainer, title);
-  postContainer.append(contentContainer, buttonsContainer);
-  toggleEditButton(editButton);
+  postContainer.append(byline, body, imgContainer);
   return postContainer;
 }
