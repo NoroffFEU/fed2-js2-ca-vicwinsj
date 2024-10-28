@@ -1,10 +1,8 @@
-export async function getKey(data) {
-  console.log(data);
+export async function setKey(response) {
+  const data = await response.json();
   if (data.data.accessToken) {
     localStorage.setItem("accessToken", data.data.accessToken);
   }
-  const accessToken = localStorage.getItem("accessToken");
-  return accessToken;
 }
 
 export const accessToken = localStorage.getItem("accessToken");

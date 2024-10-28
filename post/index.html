@@ -1,13 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
+    <script type="module" src="../src/js/router/views/post.js"></script>
     <script type="module" src="/src/app.js"></script>
   </head>
   <body>
-    <h1>Post Page</h1>
+    <header>
+      <a href="../index.html">
+        <img src="../public/images/noroff-logo.png" alt="Noroff Logo" />
+      </a>
+
+      <h1>Home</h1>
+
+      <a href="/profile/">My Profile</a>
+      <a href="/auth/login/">Login</a>
+      <a href="/auth/register/">Register</a>
+      <button id="logout-button">Logout</button>
+    </header>
+    <main id="">
+      <h1>Post Page</h1>
+      <!-- <h2 id="post-heading"></h2> -->
+      <article>
+        <a href="" id="edit-button">Edit</a>
+        <div>
+          <p id="post-author"></p>
+          <p id="post-date"></p>
+        </div>
+        <p id="post-body"></p>
+        <div><img src="" alt="" id="post-img" /></div>
+      </article>
+      <!-- <div id="tags"></div> -->
+    </main>
   </body>
 </html>
