@@ -3,12 +3,10 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   appType: "mpa",
-  base: "",
-  server: {
-    historyApiFallback: true,
-  },
+  base: "/",
   build: {
     target: "esnext",
+    outDir: "dist",
     rollupOptions: {
       input: {
         main: resolve(__dirname, "./index.html"),

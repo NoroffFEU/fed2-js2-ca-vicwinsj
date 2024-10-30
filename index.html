@@ -5,9 +5,6 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
-    <link rel="stylesheet" href="src/css/style.css" />
-    <script type="module" src="/src/js/router/views/home.js"></script>
-    <script type="module" src="/src/js/ui/global/logout.js"></script>
     <script type="module" src="/src/app.js"></script>
   </head>
 
@@ -17,16 +14,16 @@
         <img src="public/images/noroff-logo.png" alt="Noroff Logo" />
       </a>
 
-      <h1>Home</h1>
+      <h1 class="bg-black text-yellow-400">Home</h1>
 
-      <a href="/profile/" id="profile" class="hide">My Profile</a>
+      <a href="/profile/" id="profile" class="">My Profile</a>
       <a href="/auth/login/" id="login" class="">Login</a>
       <a href="/auth/register/" id="register">Register</a>
-      <button id="logout-button" class="hide">Logout</button>
+      <button id="logout-button">Logout</button>
     </header>
     <main>
       <a href="/post/create/index.html">Create post</a>
-      <div id="social-posts"></div>
+      <div id="social-posts" class="bg-black text-gray-50"></div>
     </main>
   </body>
 </html>
