@@ -4,6 +4,9 @@ import { defineConfig } from "vite";
 export default defineConfig({
   appType: "mpa",
   base: "",
+  server: {
+    historyApiFallback: true,
+  },
   build: {
     target: "esnext",
     rollupOptions: {

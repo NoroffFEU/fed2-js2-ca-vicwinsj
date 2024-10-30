@@ -14,7 +14,6 @@ export async function onRegister(event) {
     const isRegistered = await register(registerData);
 
     if (isRegistered) {
-      console.log("Registration successful");
       // window.history.go(-1); //
     }
   } catch (error) {

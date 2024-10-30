@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Noroff FED2 JS2 CA</title>
+    <script type="module" src="../../src/js/router/views/postCreate.js"></script>
     <script type="module" src="/src/app.js"></script>
   </head>
   <body>
@@ -22,7 +23,21 @@
     <h1>Create Post</h1>
 
     <form name="createPost">
-      <button>Create Post</button>
+      <div>
+        <!-- <label for="create-body">Body</label> -->
+        <textarea id="create-body" name="body" placeholder="What's on your mind?" required></textarea>
+      </div>
+      <div>
+        <div>
+          <!-- <label for="create-img-url">Image url</label> -->
+          <input type="url" id="create-img-url" name="image-url"></input>
+        </div>
+        <div>
+          <label for="create-img-alt">Image description</label>
+          <input id="create-img-alt" name="alt-text"></input>
+        </div>
+        </div>
+      <button type="submit" id="create">Create Post</button>
     </form>
   </body>
 </html>

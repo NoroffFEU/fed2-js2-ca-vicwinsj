@@ -1,6 +1,6 @@
-import { updateDate, creationDate } from "./formatDate";
-import { accessToken } from "../api/auth/key";
-import { editPostUrl } from "./postUrl";
+import { updateDate, creationDate } from "./formatDate.js";
+import { accessToken } from "../api/auth/key.js";
+import { editPostUrl } from "./postUrl.js";
 
 export async function generatePostContent(post) {
   document.title = `${post.title}`;

@@ -1,7 +1,7 @@
 const editTitle = document.getElementById("edit-title");
 const editBody = document.getElementById("edit-body");
-const imgUrl = document.getElementById("img-url");
-const imgAlt = document.getElementById("img-alt");
+const imgUrl = document.getElementById("edit-img-url");
+const imgAlt = document.getElementById("edit-img-alt");
 
 export function generateEditPostContent(post) {
   document.title = `Editing "${post.title}"`;

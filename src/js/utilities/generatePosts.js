@@ -3,7 +3,6 @@ import { updateDate, creationDate } from "./formatDate.js";
 
 export function generatePosts(post) {
   const postContainer = document.createElement("div");
-  //   postContainer.className = "index-grid-item";
 
   if (post.author && post.author.name) {
     const author = document.createElement("p");
@@ -19,14 +18,13 @@ export function generatePosts(post) {
   }
 
   const body = document.createElement("p");
-  //   title.className = "m-font letter-spacing";
+
   body.innerText = post.body;
   body.onclick = function () {
     postUrl(post);
   };
 
   const imgContainer = document.createElement("div");
-  //   imgContainer.className = "index-grid-item--img";
 
   const img = document.createElement("img");
 
