@@ -4,6 +4,9 @@ import { defineConfig } from "vite";
 export default defineConfig({
   appType: "mpa",
   base: "/",
+  css: {
+    devSourcemap: true,
+  },
   build: {
     target: "esnext",
     outDir: "dist",

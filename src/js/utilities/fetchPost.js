@@ -13,7 +13,3 @@ export async function getPost() {
     return post;
   } catch (error) {
     console.error("Fetching error:", error.message);
-  }
-}
-
-export const post = await getPost();
