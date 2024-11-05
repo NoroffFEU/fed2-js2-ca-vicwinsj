@@ -21,4 +21,31 @@ async function renderEditPost() {
   const deleteBtn = document.getElementById("delete");
   const updateBtn = document.getElementById("update");
 
-  form
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const id = post.id;
+    const title = editTitle.value;
+    const body = editBody.value;
+    const url = editUrl.value;
+
+    const action = event.submitter.value;
+
+    if (action === "update") {
+      updatePost(id, {
+        title: title,
+        body: body,
+        tags: ["test", "test2"],
+        media: {
+          url: url,
+          alt: "test",
+        },
+      });
+    }
+
+    if (action === "delete") {
+      deletePost(id);
+    }
+  });
+}
+
+renderEditPost();

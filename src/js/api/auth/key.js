@@ -1,5 +1,4 @@
 export async function getKey(data) {
-  console.log(data);
   if (data.data.accessToken) {
     localStorage.setItem("accessToken", data.data.accessToken);
   }

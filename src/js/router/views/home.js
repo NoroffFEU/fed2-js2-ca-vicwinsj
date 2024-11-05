@@ -6,11 +6,6 @@ authGuard();
 
 export default async function renderHome() {
   const socialPosts = document.getElementById("social-posts");
-  if (!socialPosts) {
-    console.error("No root element found to render the content.");
-    return;
-  }
-
   socialPosts.innerHTML = "<h1>Loading posts...</h1>";
 
   try {

@@ -1,4 +1,3 @@
-import { onCreatePost } from "../../ui/post/create.js";
 import { authGuard } from "../../utilities/authGuard.js";
 import { createPost } from "../../api/post/create.js";
 

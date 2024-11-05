@@ -1,5 +1,4 @@
 import { API_SOCIAL_POSTS } from "../api/constants.js";
-import { headers } from "../api/headers.js";
 import { doFetch } from "./doFetch.js";
 import { getId } from "./getId.js";
 
@@ -13,3 +12,7 @@ export async function getPost() {
     return post;
   } catch (error) {
     console.error("Fetching error:", error.message);
+  }
+}
+
+export const post = await getPost();

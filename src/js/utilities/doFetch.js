@@ -4,9 +4,13 @@ export async function doFetch(url, { method = "GET", body, ...options } = {}) {
   const requestOptions = {
     method,
     headers: headers(method),
-    body: method !== "GET" && body ? JSON.stringify(body) : undefined,
+    // body: method !== "GET" && body ? JSON.stringify(body) : undefined,
     ...options,
   };
+
+  if (method !== "GET" && body) {
+    requestOptions.body = JSON.stringify(body);
+  }
 
   try {
     const response = await fetch(url, requestOptions);

@@ -22,4 +22,29 @@ import { doFetch } from "../../utilities/doFetch.js";
 //     }
 
 //     return response.ok;
-//   } catch (erro
+//   } catch (error) {
+//     const errorMessage = document.getElementById("login-error");
+//     errorMessage.innerText = `${error.message}`;
+//   }
+// }
+
+export async function login({ email, password }) {
+  try {
+    const data = await doFetch(`${API_AUTH_LOGIN}`, {
+      method: "POST",
+      body: { email: email, password: password },
+    });
+
+    if (data) {
+      getKey(data);
+      return true;
+    } else {
+      accountError(data);
+      return false;
+    }
+  } catch (error) {
+    const errorMessage = document.getElementById("login-error");
+    errorMessage.innerText = `${error.message}`;
+    return false;
+  }
+}

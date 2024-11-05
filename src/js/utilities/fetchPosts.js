@@ -1,18 +1,56 @@
 import { API_SOCIAL_POSTS } from "../api/constants.js";
 import { doFetch } from "./doFetch.js";
-import { displayPosts } from "./displayPosts.js";
 import { headers } from "../api/headers.js";
 
-export async function getPosts() {
+export async function getPosts({
+  sort = "created",
+  sortOrder = "desc",
+  limit = 12,
+  page = 1,
+  _tag,
+  _author = true,
+  _reactions = true,
+  _comments = true,
+} = {}) {
+  const url = new URL(`${API_SOCIAL_POSTS}`);
+
+  url.searchParams.append("sort", sort);
+  url.searchParams.append("sortOrder", sortOrder);
+  url.searchParams.append("limit", limit);
+  url.searchParams.append("page", page);
+  if (_tag) url.searchParams.append("_tag", _tag);
+  if (_author) url.searchParams.append("_author", "true");
+  if (_reactions) url.searchParams.append("_reactions", "true");
+  if (_comments) url.searchParams.append("_comments", "true");
+
   try {
-    const response = await doFetch(`${API_SOCIAL_POSTS}`, {
-      method: "GET",
+    const response = await fetch(url, {
+      headers: headers(),
     });
-    const posts = response.data;
-    return posts;
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log(data);
+    return data.data;
   } catch (error) {
     console.error("Fetching error:", error.message);
+    throw error;
   }
 }
+
+// export async function getPosts() {
+//   try {
+//     const response = await doFetch(`${API_SOCIAL_POSTS}`, {
+//       method: "GET",
+//     });
+//     const posts = response.data;
+//     return posts;
+//   } catch (error) {
+//     console.error("Fetching error:", error.message);
+//   }
+// }
 
 export const posts = await getPosts();

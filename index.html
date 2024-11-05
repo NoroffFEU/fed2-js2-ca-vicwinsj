@@ -4,26 +4,28 @@
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Noroff FED2 JS2 CA</title>
+    <title>Zap</title>
     <script type="module" src="/src/app.js"></script>
   </head>
 
   <body>
-    <header>
+    <header class="flex gap-1 items-center justify-center">
       <a href="index.html">
         <img src="public/images/noroff-logo.png" alt="Noroff Logo" />
       </a>
 
-      <h1 class="bg-black text-yellow-400">Home</h1>
-
-      <a href="/profile/" id="profile" class="">My Profile</a>
-      <a href="/auth/login/" id="login" class="">Login</a>
-      <a href="/auth/register/" id="register">Register</a>
-      <button id="logout-button">Logout</button>
+      <h1 class="hidden">Home</h1>
+      <a href="/profile/" id="profile-btn">My Profile</a>
+      <a href="/auth/login/" id="login-btn">Login</a>
+      <a href="/auth/register/" id="register-btn">Register</a>
+      <button id="logout-btn">Logout</button>
     </header>
-    <main>
+    <main class="flex flex-col items-center">
       <a href="/post/create/index.html">Create post</a>
-      <div id="social-posts" class="bg-black text-gray-50"></div>
+      <div
+        id="social-posts"
+        class="bg-white text-gray-50 flex flex-col items-center w-full gap-3 m-2"
+      ></div>
     </main>
   </body>
 </html>
