@@ -6,36 +6,56 @@
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
   </head>
-  <body>
-    <header>
-      <a href="../../index.html">
-        <img src="../../public/images/noroff-logo.png" alt="Noroff Logo" />
+  <body class="flex items-start w-full">
+    <header
+      class="bg-orange-700 text-white p-3 w-1/6 h-screen sticky top-0 flex flex-col gap-1 items-center justify-center"
+    >
+      <a href="/">
+        <img src="/images/noroff-logo.png" alt="Noroff Logo" />
       </a>
 
-      <h1>Home</h1>
+      <h1 class="hidden">Home</h1>
       <a href="/profile/" id="profile-btn">My Profile</a>
       <a href="/auth/login/" id="login-btn">Login</a>
       <a href="/auth/register/" id="register-btn">Register</a>
       <button id="logout-btn">Logout</button>
     </header>
-    <h1>Create Post</h1>
+    <aside class="w-5/6 flex flex-col items-center gap-3">
+      <h1>Create Post</h1>
 
-    <form name="createPost">
-      <div>
-        <!-- <label for="create-body">Body</label> -->
-        <textarea id="create-body" name="body" placeholder="What's on your mind?" required></textarea>
-      </div>
-      <div>
+      <form class="flex flex-col items-center" name="createPost">
         <div>
-          <!-- <label for="create-img-url">Image url</label> -->
-          <input type="url" id="create-img-url" name="image-url"></input>
+          <!-- <label for="create-body">Body</label> -->
+          <textarea
+            class="bg-gray-300"
+            id="create-body"
+            name="body"
+            placeholder="What's on your mind?"
+            required
+          ></textarea>
         </div>
-        <div>
-          <label for="create-img-alt">Image description</label>
-          <input id="create-img-alt" name="alt-text"></input>
+        <div class="flex flex-col items-center">
+          <div>
+            <!-- <label for="create-img-url">Image url</label> -->
+            <input
+              class="bg-black text-white"
+              placeholder="Enter image url"
+              type="url"
+              id="create-img-url"
+              name="image-url"
+            />
+          </div>
+          <div>
+            <!-- <label for="create-img-alt">Image description</label> -->
+            <input
+              id="create-img-alt"
+              placeholder="Enter image description"
+              name="alt-text"
+            />
+          </div>
         </div>
-        </div>
-      <button type="submit" id="create">Create Post</button>
-    </form>
+        <button class="btn" type="submit" id="create">Post</button>
+      </form>
+    </aside>
   </body>
 </html>

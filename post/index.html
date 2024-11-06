@@ -7,10 +7,12 @@
     <title>Noroff FED2 JS2 CA</title>
     <script type="module" src="/src/app.js"></script>
   </head>
-  <body>
-    <header>
-      <a href="../index.html">
-        <img src="../public/images/noroff-logo.png" alt="Noroff Logo" />
+  <body class="flex items-start w-full">
+    <header
+      class="bg-orange-700 text-white p-3 w-1/6 h-screen sticky top-0 flex flex-col gap-1 items-center justify-center"
+    >
+      <a href="/">
+        <img src="/images/noroff-logo.png" alt="Noroff Logo" />
       </a>
 
       <h1>Home</h1>
@@ -19,19 +21,25 @@
       <a href="/auth/register/" id="register-btn">Register</a>
       <button id="logout-btn">Logout</button>
     </header>
-    <main id="">
+    <aside class="bg-white w-5/6 flex flex-col gap-3 items-center h-screen">
       <h1>Post Page</h1>
       <!-- <h2 id="post-heading"></h2> -->
-      <article>
-        <a href="" id="edit-button">Edit</a>
-        <div>
-          <p id="post-author"></p>
-          <p id="post-date"></p>
+      <article
+        class="w-1/2 rounded-xl flex flex-col gap-3 p-3 bg-black text-white"
+      >
+        <div class="flex justify-between gap-3">
+          <div class="flex items-center">
+            <p id="post-author"></p>
+            <p id="post-date"></p>
+          </div>
+          <a class="btn" href="" id="edit-btn">Edit</a>
         </div>
         <p id="post-body"></p>
-        <div><img src="" alt="" id="post-img" /></div>
+        <div class="w-full max-h-96 overflow-hidden">
+          <img class="w-full object-contain" src="" alt="" id="post-img" />
+        </div>
       </article>
       <!-- <div id="tags"></div> -->
-    </main>
+    </aside>
   </body>
 </html>

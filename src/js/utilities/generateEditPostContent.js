@@ -22,7 +22,7 @@ export function generateEditPostContent(post) {
   imgUrl.value = post.media.url;
 
   //   const altFieldset = document.getElementById("alt-fieldset");
-  imgAlt.value = post.media.alt;
+  // imgAlt.value = post.media.alt;
 
   //   uploadImgLink.addEventListener("click", () =>
   //     showImgInputs(uploadImgLink, urlFieldset, altFieldset)

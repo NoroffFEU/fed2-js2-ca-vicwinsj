@@ -1,6 +1,6 @@
 import { authGuard } from "../../utilities/authGuard.js";
 import { createPost } from "../../api/post/create.js";
-
+console.log("post container");
 authGuard();
 
 const form = document.forms.createPost;

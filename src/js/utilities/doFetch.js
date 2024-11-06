@@ -1,5 +1,20 @@
 import { headers } from "../api/headers.js";
 
+// export
+// const url = new URL("https://api.example.com/posts"); // Replace with actual API URL
+// url.searchParams.append("sort", "created");
+// url.searchParams.append("sortOrder", "desc");
+// url.searchParams.append("limit", 10);
+// url.searchParams.append("page", 2);
+// url.searchParams.append("_tag", "technology");
+// url.searchParams.append("_author", "true");
+// url.searchParams.append("_reactions", "true");
+// url.searchParams.append("_comments", "true");
+
+// fetch(url)
+//   .then(response => response.json())
+//   .then(data => console.log(data));
+
 export async function doFetch(url, { method = "GET", body, ...options } = {}) {
   const requestOptions = {
     method,
