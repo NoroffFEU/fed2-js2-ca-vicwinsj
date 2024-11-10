@@ -1,8 +1,7 @@
-// This function controls which JavaScript file is loaded on which page
-// In order to add additional pages, you will need to implement them below
-// You may change the behaviour or approach of this file if you choose
+const basePath = "/fed2-js2-ca-vicwinsj";
+
 export default async function router(pathname = window.location.pathname) {
-  let cleanPath = pathname.replace(/\/index\.html$/, "/");
+  let cleanPath = pathname.replace(basePath, "").replace(/\/index\.html$/, "/");
 
   let view;
 

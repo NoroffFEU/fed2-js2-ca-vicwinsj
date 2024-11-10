@@ -8,5 +8,5 @@ export async function getLoggedInUser() {
   });
   const user = await response.json();
   console.log(user);
-  return user; // This should include an ID or username
+  return user;
 }

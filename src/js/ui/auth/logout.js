@@ -3,7 +3,6 @@ export function onLogout(event) {
   const gotToken = localStorage.accessToken;
   if (gotToken) {
     localStorage.removeItem("accessToken");
-    // location.reload();
-    window.location.href = "/";
+    location.reload();
   }
 }

@@ -5,8 +5,3 @@ export function toggleLoader() {
     loaderOverlay.classList.toggle("flex"); // Toggles the "flex" class
   }
 }
-
-// export function hideLoader() {
-//   document.getElementById("loader-overlay").classList.toggle("hidden");
-//   document.getElementById("loader-overlay").classList.toggle("flex");
-// }

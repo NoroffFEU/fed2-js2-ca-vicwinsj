@@ -40,16 +40,4 @@ export async function getPosts({
   }
 }
 
-// export async function getPosts() {
-//   try {
-//     const response = await doFetch(`${API_SOCIAL_POSTS}`, {
-//       method: "GET",
-//     });
-//     const posts = response.data;
-//     return posts;
-//   } catch (error) {
-//     console.error("Fetching error:", error.message);
-//   }
-// }
-
 export const posts = await getPosts();

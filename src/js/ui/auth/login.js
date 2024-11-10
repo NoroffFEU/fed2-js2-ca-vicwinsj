@@ -1,4 +1,3 @@
-// import { loginRedirect } from "./loginRedirect.mjs";
 import { login } from "../../api/auth/login.js";
 
 export async function onLogin(event) {

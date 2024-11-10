@@ -35,14 +35,16 @@
         </button>
       </div>
     </header>
-    <aside class="my-3 w-5/6 flex flex-col items-center gap-3">
+    <aside
+      class="w-screen lg:w-5/6 my-3 mt-10 flex flex-col items-center gap-3"
+    >
       <h1 class="hidden">Create Post</h1>
       <form
         class="flex flex-col items-center gap-3 p-3 w-1/2 bg-black text-white rounded-xl"
         name="createPost"
       >
         <div class="w-full">
-          <!-- <label for="create-body">Body</label> -->
+          <label class="hidden" for="create-body">Body</label>
           <textarea
             class="w-full bg-black resize-none p-3 h-11"
             id="create-body"
@@ -58,7 +60,7 @@
             <i class="fa-regular fa-image"></i><span>Add image</span>
           </summary>
           <div>
-            <!-- <label for="create-img-url">Image url</label> -->
+            <label class="hidden" for="create-img-url">Image url</label>
             <input
               class="bg-black text-white p-3"
               placeholder="Enter image url"
@@ -67,15 +69,7 @@
               name="image-url"
             />
           </div>
-          <div>
-            <!-- <label for="create-img-alt">Image description</label> -->
-            <!-- <input
-              class="bg-black text-white"
-              id="create-img-alt"
-              placeholder="Enter image description"
-              name="alt-text"
-            /> -->
-          </div>
+          <div></div>
         </details>
         <button class="btn" type="submit" id="create">Post</button>
       </form>

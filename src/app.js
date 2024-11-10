@@ -13,3 +13,13 @@ const fontAwesomeScript = document.createElement("script");
 fontAwesomeScript.src = "https://kit.fontawesome.com/7d99a0a315.js";
 fontAwesomeScript.crossOrigin = "anonymous";
 document.head.appendChild(fontAwesomeScript);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const basePath = "/fed2-js2-ca-vicwinsj";
+  document.querySelectorAll("a[href^='/']").forEach((link) => {
+    link.href = basePath + link.getAttribute("href");
+  });
+  document.querySelectorAll("img[src^='/']").forEach((img) => {
+    img.src = basePath + img.getAttribute("src");
+  });
+});

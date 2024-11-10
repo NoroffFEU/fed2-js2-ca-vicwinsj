@@ -11,7 +11,6 @@ const createUrl = document.getElementById("create-img-url");
 form.addEventListener("submit", (event) => {
   console.log("submit button fired");
   event.preventDefault();
-  //   const title = createTitle.value;
   const body = createBody.value;
   const url = createUrl.value;
   createPost({
