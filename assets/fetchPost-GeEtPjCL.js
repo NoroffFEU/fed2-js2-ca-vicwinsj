@@ -1,0 +1,1 @@
+import{A as o}from"./headers-D7cuGrdQ.js";import{d as e}from"./doFetch-Cp_EgcW1.js";function s(){return new URLSearchParams(window.location.search).get("id")}async function a(){try{const t=s();return(await e(`${o}/${t}`,{method:"GET"})).data}catch(t){console.error("Fetching error:",t.message)}}await a();export{a as g};
