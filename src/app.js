@@ -8,4 +8,8 @@ await router(window.location.pathname);
 
 toggleMenuLinks();
 setLogoutListener();
-// generateMenu();
+
+const fontAwesomeScript = document.createElement("script");
+fontAwesomeScript.src = "https://kit.fontawesome.com/7d99a0a315.js";
+fontAwesomeScript.crossOrigin = "anonymous";
+document.head.appendChild(fontAwesomeScript);

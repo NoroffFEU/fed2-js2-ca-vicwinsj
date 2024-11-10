@@ -19,7 +19,6 @@ export async function doFetch(url, { method = "GET", body, ...options } = {}) {
   const requestOptions = {
     method,
     headers: headers(method),
-    // body: method !== "GET" && body ? JSON.stringify(body) : undefined,
     ...options,
   };
 

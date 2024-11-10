@@ -33,7 +33,6 @@ export async function getPosts({
     }
 
     const data = await response.json();
-    console.log(data);
     return data.data;
   } catch (error) {
     console.error("Fetching error:", error.message);

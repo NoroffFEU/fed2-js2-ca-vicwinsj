@@ -1,13 +1,14 @@
 import { authGuard } from "../../utilities/authGuard.js";
 import { getPosts } from "../../utilities/fetchPosts.js";
 import { displayPosts } from "../../utilities/displayPosts.js";
+import { toggleLoader } from "../../utilities/loader.js";
+import { accessToken } from "../../api/auth/key.js";
 
 authGuard();
 
 export default async function renderHome() {
   const socialPosts = document.getElementById("social-posts");
-  socialPosts.innerHTML = "<h1>Loading posts...</h1>";
-
+  toggleLoader();
   try {
     const posts = await getPosts();
     if (posts && posts.length > 0) {
@@ -20,17 +21,7 @@ export default async function renderHome() {
     console.error("Error rendering posts:", error);
     socialPosts.innerHTML = `<p>Error loading posts: ${error.message}</p>`;
   }
+  toggleLoader();
 }
 
 renderHome();
-
-// export async function renderPosts() {
-//   const posts = await getPosts();
-//   if (posts && posts.length > 0) {
-//     displayPosts(posts);
-//   } else {
-//     console.error("No posts available or an error occurred.");
-//   }
-// }
-
-// renderPosts();

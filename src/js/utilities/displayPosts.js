@@ -4,7 +4,6 @@ import { getPosts } from "./fetchPosts.js";
 export async function displayPosts(posts) {
   const socialPosts = document.getElementById("social-posts");
   socialPosts.textContent = "";
-  console.log(posts);
 
   posts.sort((a, b) => new Date(b.date) - new Date(a.date));
   const recentPosts = posts.slice(0, 12);

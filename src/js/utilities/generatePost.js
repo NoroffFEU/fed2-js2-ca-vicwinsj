@@ -1,6 +1,8 @@
 import { updateDate, creationDate } from "./formatDate.js";
 import { accessToken } from "../api/auth/key.js";
-import { editPostUrl } from "./postUrl.js";
+import { editPostUrl, postUrl } from "./postUrl.js";
+import { headers } from "../api/headers.js";
+import { getLoggedInUser } from "./getUser.js";
 
 export async function generatePostContent(post) {
   document.title = `${post.title}`;
@@ -34,53 +36,26 @@ export async function generatePostContent(post) {
   const commentsContainer = document.getElementById("comments");
   commentsContainer.classList.add("mt-4", "bg-gray-800", "p-3", "rounded-lg");
 
-  const commentForm = document.createElement("form");
-  commentForm.classList.add("flex");
+  const reply = document.getElementById("reply");
+  reply.classList.add("flex");
 
-  const commentsTitle = document.createElement("p");
-  commentsTitle.classList.add("font-semibold", "text-lg", "text-gray-400");
-  commentsTitle.innerText = "Comments";
-  commentsContainer.appendChild(commentsTitle);
+  if (post.comments) {
+    post.comments.forEach((comment) => {
+      const commentContainer = document.createElement("div");
+      commentContainer.classList.add("mt-2", "p-2", "bg-gray-900", "rounded");
 
-  post.comments.forEach((comment) => {
-    const commentContainer = document.createElement("div");
-    commentContainer.classList.add("mt-2", "p-2", "bg-gray-900", "rounded");
+      const commentAuthor = document.createElement("p");
+      commentAuthor.classList.add("text-sm", "font-bold", "text-gray-300");
+      commentAuthor.innerText = "@" + comment.author.name;
 
-    const commentAuthor = document.createElement("p");
-    commentAuthor.classList.add("text-sm", "font-bold", "text-gray-300");
-    commentAuthor.innerText = "@" + comment.author.name;
+      const commentBody = document.createElement("p");
+      commentBody.classList.add("text-sm", "text-gray-200");
+      commentBody.innerText = comment.body;
 
-    const commentBody = document.createElement("p");
-    commentBody.classList.add("text-sm", "text-gray-200");
-    commentBody.innerText = comment.body;
-
-    commentContainer.append(commentAuthor, commentBody);
-    commentsContainer.append(commentContainer);
-  });
-
-  const textarea = document.createElement("textarea");
-  textarea.classList.add(
-    "z-10",
-    "w-full",
-    "bg-black",
-    "text-white",
-    "resize-none",
-    "p-3",
-    "h-11"
-  );
-  textarea.placeholder = "Make a comment";
-  textarea.onclick = "event.stopPropagation()";
-  const button = document.createElement("button");
-  button.innerText = "Post";
-  textarea.addEventListener("click", (event) => {
-    event.stopPropagation();
-  });
-  button.classList = "btn";
-  button.addEventListener("click", (event) => {
-    event.stopPropagation();
-    event.preventDefault();
-  });
-  commentForm.append(textarea, button);
+      commentContainer.append(commentAuthor, commentBody);
+      commentsContainer.append(commentContainer);
+    });
+  }
 
   const reactionsContainer = document.createElement("div");
   reactionsContainer.classList.add("mt-4", "flex", "gap-3", "items-center");
@@ -90,19 +65,24 @@ export async function generatePostContent(post) {
   reactionsTitle.innerText = "Reactions:";
   reactionsContainer.appendChild(reactionsTitle);
 
-  post.reactions.forEach((reaction) => {
-    const reactionItem = document.createElement("span");
-    reactionItem.classList.add("text-sm", "flex", "items-center", "gap-1");
+  if (post.comments) {
+    post.reactions.forEach((reaction) => {
+      console.log(reaction.symbol);
+      const reactionItem = document.createElement("span");
+      reactionItem.classList.add("text-sm", "flex", "items-center", "gap-1");
 
-    const reactionSymbol = document.createElement("span");
-    reactionSymbol.innerText = reaction.symbol;
+      const reactionSymbol = document.createElement("span");
+      reactionSymbol.innerText = reaction.symbol;
 
-    const reactionCount = document.createElement("span");
-    reactionCount.innerText = `(${reaction.count})`;
+      const reactionCount = document.createElement("span");
+      reactionCount.innerText = `(${reaction.count})`;
 
-    reactionItem.append(reactionSymbol, reactionCount);
-    reactionsContainer.appendChild(reactionItem);
-  });
+      reactionItem.append(reactionSymbol, reactionCount);
+      reactionsContainer.appendChild(reactionItem);
+    });
+  }
+
+  // getLoggedInUser();
 
   if (accessToken) {
     const editButton = document.getElementById("edit-btn");

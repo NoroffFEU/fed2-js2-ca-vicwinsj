@@ -4,37 +4,62 @@
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zap</title>
-    <script
-      src="https://kit.fontawesome.com/7d99a0a315.js"
-      crossorigin="anonymous"
-    ></script>
+    <title>Chat Cat</title>
     <script type="module" src="/src/app.js"></script>
   </head>
 
-  <body class="flex items-start w-full">
+  <body class="flex flex-col-reverse lg:flex-row items-start w-full">
     <header
-      class="bg-orange-700 text-white p-3 w-1/6 h-screen sticky top-0 flex flex-col gap-1 items-center justify-center"
+      class="bg-orange-700 text-white p-3 lg:w-1/6 w-screen h-8 lg:h-screen lg:sticky flex lg:flex-col gap-3 items-center justify-center fixed top-0"
     >
       <a href="/">
-        <img src="/images/noroff-logo.png" alt="Noroff Logo" />
+        <img class="w-10" src="/images/chat-cat-logo.svg" alt="Chat Cat Logo" />
       </a>
-
-      <h1 class="hidden">Home</h1>
-      <a href="/profile/" id="profile-btn">My Profile</a>
-      <a href="/auth/login/" id="login-btn">Login</a>
-      <a href="/auth/register/" id="register-btn">Register</a>
-      <button id="logout-btn">Logout</button>
+      <div
+        class="bg-orange-700 text-white p-3 lg:w-1/6 w-screen h-20 lg:h-screen lg:top-0 flex lg:flex-col gap-3 items-center justify-center lg:sticky lg:left-0 fixed bottom-0"
+      >
+        <a class="flex flex-col gap-1 hover:text-gray-100" href="/" class=""
+          ><i class="fa-solid fa-house"></i
+          ><span class="lg:block hidden">Home</span></a
+        >
+        <a
+          class="flex flex-col gap-1 hover:text-gray-100"
+          href="/profile/"
+          id="profile-btn"
+          ><i class="fa-solid fa-user"></i
+          ><span class="hidden lg:block">Profile</span></a
+        >
+        <a class="hover:text-gray-100" href="/auth/login/" id="login-btn"
+          >Login</a
+        >
+        <a class="hover:text-gray-100" href="/auth/register/" id="register-btn"
+          >Register</a
+        >
+        <button class="hover:text-gray-100" id="logout-btn">
+          <i class="fa-solid fa-right-from-bracket">Logout</i>
+        </button>
+      </div>
     </header>
-    <main class="w-5/6 flex flex-col gap-3 items-center my-3 bg-white">
+
+    <main
+      class="w-full lg:w-5/6 flex flex-col gap-3 items-center my-3 bg-white"
+    >
+      <div
+        id="loader-overlay"
+        class="hidden fixed inset-y-0 items-center justify-center"
+      >
+        <div
+          class="w-16 h-16 border-4 border-gray-300 border-t-orange-700 rounded-full animate-spin"
+        ></div>
+      </div>
       <a
         href="/post/create/index.html"
-        class="flex justify-center items-center bg-orange-700 hover:bg-orange-300 text-white rounded-full w-5 h-5"
+        class="mt-7 flex justify-center items-center bg-orange-700 hover:bg-orange-300 text-white rounded-full w-5 h-5"
         ><i class="fa-solid fa-plus"></i
       ></a>
       <div
         id="social-posts"
-        class="text-gray-50 flex flex-col items-center w-full gap-3"
+        class="bg-white text-white flex flex-col items-center w-full gap-3"
       ></div>
     </main>
   </body>
