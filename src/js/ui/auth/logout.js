@@ -4,8 +4,5 @@ export function onLogout(event) {
   if (gotToken) {
     localStorage.removeItem("accessToken");
     location.reload();
-    console.log("Log out success");
-  } else {
-    console.log("No token");
   }
 }

@@ -1,4 +1,3 @@
-// import { loginRedirect } from "./loginRedirect.mjs";
 import { login } from "../../api/auth/login.js";
 
 export async function onLogin(event) {
@@ -14,10 +13,8 @@ export async function onLogin(event) {
     const isLoggedIn = await login(loginData);
 
     if (isLoggedIn) {
-      console.log("Login successful");
       window.history.go(-1);
     } else {
-      console.log("not successful");
     }
   } catch (error) {
     errorMessage.innerText = `${error.message}`;

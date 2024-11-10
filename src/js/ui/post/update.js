@@ -1,4 +1,11 @@
-export async function onUpdatePost(event) {}
+import { updatePost } from "../../api/post/update.js";
+import { getId } from "../../utilities/getId.js";
+
+export async function onUpdatePost(event) {
+  event.preventDefault;
+  const id = getId();
+  updatePost(id);
+}
 
 const editPost = document.getElementById("edit-post");
 

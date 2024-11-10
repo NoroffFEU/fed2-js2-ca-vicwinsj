@@ -3,26 +3,76 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Noroff FED2 JS2 CA</title>
+    <title>Create Post | Chat Cat</title>
+    <script
+      src="https://kit.fontawesome.com/7d99a0a315.js"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="/src/app.js"></script>
   </head>
-  <body>
-    <header>
-      <a href="../../index.html">
-        <img src="../../public/images/noroff-logo.png" alt="Noroff Logo" />
+  <body class="flex flex-col-reverse lg:flex-row items-start w-full">
+    <header
+      class="bg-orange-700 text-white p-3 lg:w-1/6 w-screen h-8 lg:h-screen lg:sticky flex lg:flex-col gap-3 items-center justify-center fixed top-0"
+    >
+      <a href="/">
+        <img class="w-10" src="/images/chat-cat-logo.svg" alt="Chat Cat Logo" />
       </a>
-
-      <h1>Home</h1>
-
-      <a href="/profile/">My Profile</a>
-      <a href="/auth/login/">Login</a>
-      <a href="/auth/register/">Register</a>
-      <button id="logout-button">Logout</button>
+      <div
+        class="bg-orange-700 text-white p-3 lg:w-1/6 w-screen h-20 lg:h-screen lg:top-0 flex lg:flex-col gap-3 items-center justify-center lg:sticky lg:left-0 fixed bottom-0"
+      >
+        <a class="flex flex-col gap-1" href="/" class=""
+          ><i class="fa-solid fa-house"></i
+          ><span class="lg:block hidden">Home</span></a
+        >
+        <a class="flex flex-col gap-1" href="/profile/" id="profile-btn"
+          ><i class="fa-solid fa-user"></i
+          ><span class="hidden lg:block">Profile</span></a
+        >
+        <a href="/auth/login/" id="login-btn">Login</a>
+        <a href="/auth/register/" id="register-btn">Register</a>
+        <button id="logout-btn">
+          <i class="fa-solid fa-right-from-bracket">Logout</i>
+        </button>
+      </div>
     </header>
-    <h1>Create Post</h1>
-
-    <form name="createPost">
-      <button>Create Post</button>
-    </form>
+    <aside
+      class="w-screen lg:w-5/6 my-3 mt-10 flex flex-col items-center gap-3"
+    >
+      <h1 class="hidden">Create Post</h1>
+      <form
+        class="flex flex-col items-center gap-3 p-3 w-1/2 bg-black text-white rounded-xl"
+        name="createPost"
+      >
+        <div class="w-full">
+          <label class="hidden" for="create-body">Body</label>
+          <textarea
+            class="w-full bg-black resize-none p-3 h-11"
+            id="create-body"
+            name="body"
+            placeholder="What's on your mind?"
+            required
+          ></textarea>
+        </div>
+        <details class="w-full flex flex-col items-center">
+          <summary
+            class="flex items-center gap-3 font-bold text-white hover:text-gray-300 cursor-pointer"
+          >
+            <i class="fa-regular fa-image"></i><span>Add image</span>
+          </summary>
+          <div>
+            <label class="hidden" for="create-img-url">Image url</label>
+            <input
+              class="bg-black text-white p-3"
+              placeholder="Enter image url"
+              type="url"
+              id="create-img-url"
+              name="image-url"
+            />
+          </div>
+          <div></div>
+        </details>
+        <button class="btn" type="submit" id="create">Post</button>
+      </form>
+    </aside>
   </body>
 </html>
